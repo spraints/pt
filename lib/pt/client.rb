@@ -33,6 +33,10 @@ class PT::Client
     PivotalTracker::Iteration.current(project)
   end
 
+  def get_wip(project)
+    project.stories.all :state => %W(started finished)
+  end
+
   def get_my_work(project, user_name)
     project.stories.all :mywork => user_name
   end

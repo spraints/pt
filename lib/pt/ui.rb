@@ -25,6 +25,12 @@ class PT::UI
     PT::TasksTable.new(stories).print
   end
 
+  def wip
+    title("Work in progress in #{project_to_s}")
+    stories = @client.get_wip(@project)
+    PT::TasksTable.new(stories).print
+  end
+
   def current
     title("Current iteration for #{project_to_s}")
     iteration = @client.get_current_iteration(@project)
