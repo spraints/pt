@@ -25,6 +25,12 @@ class PT::UI
     PT::TasksTable.new(stories).print
   end
 
+  def current
+    title("Current iteration for #{project_to_s}")
+    iteration = @client.get_current_iteration(@project)
+    PT::TasksTable.new(iteration.stories).print
+  end
+
   def create
     title("Let's create a new task:")
     name = ask("Name for the new task:")
