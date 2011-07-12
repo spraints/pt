@@ -37,6 +37,12 @@ class PT::UI
     PT::TasksTable.new(iteration.stories).print
   end
 
+  def unstarted
+    title("First 20 unstarted stories for #{project_to_s}")
+    stories = @client.get_unstarted_stories(@project, 20)
+    PT::TasksTable.new(stories).print
+  end
+
   def create
     title("Let's create a new task:")
     name = ask("Name for the new task:")

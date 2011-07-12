@@ -33,6 +33,10 @@ class PT::Client
     PivotalTracker::Iteration.current(project)
   end
 
+  def get_unstarted_stories(project, limit)
+    project.stories.all :state => %W(unstarted), :limit => limit
+  end
+
   def get_wip(project)
     project.stories.all :state => %W(started finished)
   end
