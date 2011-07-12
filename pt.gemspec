@@ -1,6 +1,6 @@
 lib = File.expand_path('../lib/', __FILE__)
 $:.unshift lib unless $:.include?(lib)
-require 'pt'
+require 'pt/version'
 
 Gem::Specification.new do |s|
   s.name              = "pt"
